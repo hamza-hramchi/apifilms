@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'index');
-Route::view('/film', 'show');
+Route::view('/', 'index')->name('index');
+Route::view('/film', 'show')->name('show');
 
 Auth::routes();
 
