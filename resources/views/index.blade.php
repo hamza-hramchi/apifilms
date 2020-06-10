@@ -6,24 +6,24 @@
             <h2 class="uppercase text-default text-bold"> Les films </h2>
             <!--- Grid --->
             <div class="grid grid-cols-5 gap-8 mt-2">
-
+                @foreach($films as $film)
                 <div class="mt-5">
-                    <a href="">
-                        <img src="{{asset('images/poster.jpg')}}" alt="poster" width="600px" height="800px">
+                    <a href="{{url('film/'.$film['id'])}}">
+                        <img src="{{'https://image.tmdb.org/t/p/w500/'.$film['poster_path']}}" alt="poster" width="600px" height="800px">
                     </a>
                     <div class="mt-2 ml-4">
-                        <a href=""  class="text-white text-lg text-bold mt-2">Film1</a>
+                        <a href="{{url('film/'.$film['id'])}}"  class="text-white text-lg text-bold mt-2">{{$film['title']}}</a>
                         <div class="felx items-center text-warning text-sm">
-                            <span>Star</span>
-                            <span>85%</span>
+                            <span>{{$film['vote_count']}} votes</span>
                             <span >|</span>
-                            <span>Date</span>
+                            <span>{{$film['release_date']}}</span>
                         </div>
                         <!--<div class="text-black text-sm">
                             Action - Trailler - Comedie
                         </div> -->
                     </div>
                 </div>
+                @endforeach
             </div>
             <!---/ Grid --->
         </div>

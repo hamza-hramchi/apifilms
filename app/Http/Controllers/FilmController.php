@@ -9,11 +9,13 @@ class FilmController extends Controller
 {
     public function index(){
         $films = Http::get('https://api.themoviedb.org/3/movie/popular?api_key=ff3d7a37ebce90ac13d25ffeacb9c48d')->json()['results'];
-        dump($films);
-        return view('index');
+        //dump($films);
+        return view('index', ['films' => $films]);
     }
 
-    public function show(){
-        return view('show');
+    public function show($id){
+        dd($id);
     }
+
+
 }
