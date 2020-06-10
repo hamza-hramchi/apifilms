@@ -8,11 +8,11 @@
             <div class="grid grid-cols-5 gap-8 mt-2">
 
                 <div class="mt-5">
-                    <a href="{{route('show')}}">
+                    <a href="">
                         <img src="{{asset('images/poster.jpg')}}" alt="poster" width="600px" height="800px">
                     </a>
                     <div class="mt-2 ml-4">
-                        <a href="{{route('show')}}"  class="text-white text-lg text-bold mt-2">Film1</a>
+                        <a href=""  class="text-white text-lg text-bold mt-2">Film1</a>
                         <div class="felx items-center text-warning text-sm">
                             <span>Star</span>
                             <span>85%</span>

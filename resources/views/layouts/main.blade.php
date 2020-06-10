@@ -20,7 +20,7 @@
               </li>
 
               <li class="md:ml-4 mt-3 md:mt-0">
-                <a href="{{route('index')}}" class="text-white hover:text-gray">Page d'accueil</a>
+                <a href="" class="text-white hover:text-gray">Page d'accueil</a>
             </li>
 
               <li class="md:ml-4 mt-3 md:mt-0">
