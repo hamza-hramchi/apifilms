@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <title>App N Digital | Films</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <livewire:styles>
+    <!--/ Styles -->
 </head>
+
 <body class="font-sans bg-gray-600 text-white">
   <nav class="bg-gray-900 border-b border-gray-800" id="app">
       <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-2 py-6">
@@ -47,15 +50,16 @@
 
   <!-- Footer -->
 <footer class="page-footer font-small blue">
-
-    <!-- Copyright -->
     <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza
       <a href="https://www.themoviedb.org/documentation/api" class="text-black"> themoviedb API</a>
     </div>
-    <!-- Copyright -->
-  
 </footer>
   <!-- Footer -->
+
+<!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <livewire:scripts>
+<!--/ Scripts -->
 
 </body>
 </html>
