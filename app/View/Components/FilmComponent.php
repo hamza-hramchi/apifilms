@@ -6,14 +6,10 @@ use Illuminate\View\Component;
 
 class FilmComponent extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $film;
+    public function __construct($film)
     {
-        //
+        $this->film = $film;
     }
 
     /**

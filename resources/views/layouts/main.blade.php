@@ -20,7 +20,7 @@
               </li>
 
               <li class="md:ml-4 mt-3 md:mt-0">
-                <a href="" class="text-white hover:text-gray">Page d'accueil</a>
+                <a href="{{route('index')}}" class="text-white hover:text-gray">Page d'accueil</a>
             </li>
 
               <li class="md:ml-4 mt-3 md:mt-0">
@@ -44,6 +44,18 @@
   </nav>
 
   @yield('content')
+
+  <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza
+      <a href="https://www.themoviedb.org/documentation/api" class="text-black"> themoviedb API</a>
+    </div>
+    <!-- Copyright -->
+  
+</footer>
+  <!-- Footer -->
 
 </body>
 </html>
