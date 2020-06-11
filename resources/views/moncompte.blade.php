@@ -17,21 +17,45 @@
                             <div class="card text-black" style="width: 18rem;">
                                 <img class="card-img-top" src="{{asset('images/user.png')}}" alt="Card image cap">
                                 <div class="card-body">
-                                  <h5 class="card-title">{{$user->name}}</h5>
-                                  <p class="card-text">{{$user->email}}</p>
+                                  <h5 class="card-title">{{ $data[0]->name }}</h5>
+                                  <p class="card-text">{{ $data[0]->email }}</p>
+                                  <a href="#critiques" class="badge badge-info" data-toggle="tab">Vous avez {{ $data[1]->count()}} critique(s)</a>
                                 </div>
                               </div>
                         </div>
-
+                        
+                        
                         <!-- Setting Tab -->
                         <div class="tab-pane active show" id="critiques">
-                            <ul>
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                            </ul>
+                        @if($data[1]->count() >0)
+                            <!-- Card -->
+                            @foreach($data[1] as $critic)
+                                <div class="card promoting-card">
+
+                                    <!-- Card content -->
+                                    <div class="card-body d-flex flex-row">                               
+                                    <!-- Content -->
+                                    <div>
+                                        <!-- Title -->
+                                        <h4 class="card-title text-black text-bold font-weight-bold mb-2">{{$critic->titre}}</h4>
+                                        <!-- Subtitle -->
+                                        <p class="card-text text-black">{{$critic->created_at->diffForHumans()}}</p>
+                                    </div>
+                                    </div>
+                                
+                                    <!-- Card content -->
+                                    <div class="card-body">
+                                        <p class="card-text text-black">{{ $critic->contenu }}</p>
+                                    </div>
+                                
+                                </div>
+                                <!-- Card -->
+                            @endforeach
+                        @else
+                        <span class="badge badge-warning">Vous avez aucune critique !</span>
+                        @endif
                         </div>
+                        
                     <!-- /.tab-pane -->
                     </div>
                     <!-- /.tab-content -->
