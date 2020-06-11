@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,8 @@
 </head>
 
 <body class="font-sans bg-gray-600 text-white">
-  <nav class="bg-gray-900 border-b border-gray-800" id="app">
-      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-2 py-6">
+  <nav class="bg-blue-900 border-b border-gray-800" id="app">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-2 py-2">
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
                     <a href="{{route('index')}}">
@@ -25,6 +25,17 @@
 
                 <li class="md:ml-4 mt-3 md:mt-0">
                     <a href="{{route('index')}}" class="text-white hover:text-gray">Page d'accueil</a>
+                </li>
+
+                <li class="md:ml-4 ml-3 md:mt-0">
+                    <div class="dropdown mt-3">
+                        <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                          Les derniers films critiqués
+                        </button>
+                        <div class="dropdown-menu" id="latest">
+                          
+                        </div>
+                      </div>
                 </li>
                 @auth
                 <li class="md:ml-4 mt-3 md:mt-0">
@@ -69,3 +80,22 @@
 </footer>
   <!-- Footer -->
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+      url : '/lespluscritiques',
+      type : 'GET',
+      success : function(data){
+        var rows = data.latest;
+        var chaine ='';
+        $.each(rows,function(index,row){
+          chaine ="<a class=dropdown-item href=>" + row.titre + "</a>";
+          $("#latest").append(chaine);
+          
+        });
+      }
+    });
+  });
+</script>

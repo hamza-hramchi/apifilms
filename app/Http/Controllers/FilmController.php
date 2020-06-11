@@ -24,5 +24,11 @@ class FilmController extends Controller
         return ['critics' => $critics];
     }
 
+    public function latest(){
+        $latest = Film::orderBy('created_at','desc')->take(4)->get();
+        return ['latest' => $latest];
+        
+    }
+
 
 }

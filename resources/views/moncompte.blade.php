@@ -14,7 +14,7 @@
                     <div class="tab-content">
                         <!-- profil Tab -->
                         <div class="tab-pane" id="profil">
-                            <div class="card text-black" style="width: 18rem;">
+                            <div class="card text-black mx-auto" style="width: 16rem;">
                                 <img class="card-img-top" src="{{asset('images/user.png')}}" alt="Card image cap">
                                 <div class="card-body">
                                   <h5 class="card-title">{{ $data[0]->name }}</h5>
@@ -35,19 +35,18 @@
                                     <!-- Card content -->
                                     <div class="card-body d-flex flex-row">                               
                                     <!-- Content -->
-                                    <div>
-                                        <!-- Title -->
-                                        <h4 class="card-title text-black text-bold font-weight-bold mb-2">{{$critic->titre}}</h4>
-                                        <!-- Subtitle -->
-                                        <p class="card-text text-black">{{$critic->created_at->diffForHumans()}}</p>
+                                        <div id="{{$critic->id}}">
+                                            <!-- Title -->
+                                            <h5 class="card-title text-black font-weight mb-2">{{$critic->titre}}</h5>
+                                            <!-- Subtitle -->
+                                            <p class="card-text text-black">{{ $critic->contenu }}</p>
+                                            <p class="card-text text-black">{{$critic->created_at->diffForHumans()}}</p>
+                                            <form method="POST" action="{{route('delete',$critic->id)}}">
+                                                @csrf
+                                                <button class="btn btn-danger">Supprimer</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    </div>
-                                
-                                    <!-- Card content -->
-                                    <div class="card-body">
-                                        <p class="card-text text-black">{{ $critic->contenu }}</p>
-                                    </div>
-                                
                                 </div>
                                 <!-- Card -->
                             @endforeach

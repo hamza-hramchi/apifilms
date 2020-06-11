@@ -28,6 +28,12 @@ class UserController extends Controller
         $critic->film_id = $idfilm;
         $critic->titre   = $request->input('titre');
         $critic->contenu = $request->input('contenu');
+        $critic->film_titre = $request->input('film_titre');
         $critic->save();   
+    }
+
+    public function delete($id){
+        Film::destroy([$id]);
+        return back();
     }
 }
