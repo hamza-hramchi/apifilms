@@ -20,4 +20,30 @@ $(document).ready(function(){
             });
         } 
     })
+
+    var id = $(".divFilm").attr("id");
+    console.log(id);
+    
+    $.ajax({ 
+        url :'/film/' + id + '/critiques',
+        method : 'GET',
+        data : {id : id},
+        dataType: 'json',
+        success: function(result){
+            data = result.critics;
+            chaine = '';
+            if(data.length == 0){
+                chaine += "<p class=text-white> Ce film n'a aucune critique </p>";
+                $("#criticsList").append(chaine);
+            }
+            else{
+                $.each(data,function(index,row){
+                    chaine += "<h4 class=text-warning>" + row.titre + "</h4>";
+                    chaine += "<p>" + row.contenu + "/</p>";
+                    chaine += "<small>" + row.created_at + "</small><hr>";
+                    $("#criticsList").append(chaine);
+                });
+            }
+        }
+    })
 });

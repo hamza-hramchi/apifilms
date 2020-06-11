@@ -20,7 +20,8 @@ class FilmController extends Controller
     }
 
     public function getCritics($id){
-        return Film::where('film_id',$id);
+        $critics = Film::where('film_id','=', $id)->get();
+        return ['critics' => $critics];
     }
 
 

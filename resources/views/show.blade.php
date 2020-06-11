@@ -6,9 +6,9 @@
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
                 @if($film['poster_path'])
-                <img src="{{'https://image.tmdb.org/t/p/w500/'.$film['poster_path']}}" alt="poster" class="w-64 lg:w-96" width="24rem">
+                    <img src="{{'https://image.tmdb.org/t/p/w500/'.$film['poster_path']}}" alt="poster" class="w-64 lg:w-96" width="24rem">
                 @else
-                <img src="{{asset('images/default.jpg')}}" alt="poster" class="w-64 lg:w-96" width="24rem">
+                    <img src="{{asset('images/default.jpg')}}" alt="poster" class="w-64 lg:w-96" width="24rem">
                 @endif
             </div>
 
@@ -33,9 +33,6 @@
 
         <div class="container" id="criticsList">
             <h1>Les critiques pour : {{$film['title']}}</h1>
-            <h4>jfjfnjf</h4>
-            <p>jndnjdnj</p>
-            <span>date</span>
         </div>
 
     </div>
@@ -76,10 +73,5 @@
 <!------ Javascript --------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{asset('js/script.js')}}">
-    var id = $("#divFilm").attr("id");
-    $.ajax({ 
-        url :'/film/' + id + '/critiques',
-        method : 'GET'
-    })
 </script>
 <!------/ Javascript --------->

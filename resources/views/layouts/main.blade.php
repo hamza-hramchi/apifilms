@@ -31,12 +31,10 @@
                     <a href="{{route('moncompte',Auth::user()->id)}}" class="text-white hover:text-gray">Mon compte</a>
                 </li>
                 <li class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-white hover:text-gray">
-                    {{ __('Déconnexion') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    </form>
+                    <button class="btn btn-danger"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-white hover:text-gray">
+                    {{ __('Déconnexion') }}</a></button>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="mt-1">
+                    @csrf </form>
                 </li>
                 @else
                 <li class="md:ml-4 mt-3 md:mt-0">
