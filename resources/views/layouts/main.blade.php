@@ -14,7 +14,7 @@
 </head>
 
 <body class="font-sans bg-gray-600 text-white">
-  <nav class="bg-blue-900 border-b border-gray-800" id="app">
+  <nav class="bg-black border-b border-gray-800" id="app">
       <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-2 py-2">
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
@@ -24,12 +24,16 @@
                 </li>
 
                 <li class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{route('index')}}" class="text-white hover:text-gray">Page d'accueil</a>
+                    <a href="{{route('index')}}" class="text-warning hover:text-gray">
+                      <i class="fas fa-home"></i>
+                      Page d'accueil
+                    </a>
                 </li>
 
                 <li class="md:ml-4 ml-3 md:mt-0">
                     <div class="dropdown mt-3">
                         <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+                          <i class="fas fa-film text-info"></i>
                           Les derniers films critiqués
                         </button>
                         <div class="dropdown-menu" id="latest">
@@ -38,20 +42,29 @@
                 </li>
                 @auth
                 <li class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{route('moncompte',Auth::user()->id)}}" class="text-white hover:text-gray">Mon compte</a>
+                    <a href="{{route('moncompte',Auth::user()->id)}}" class="text-white hover:text-gray">
+                      <i class="fas fa-user text-success"></i>
+                      Mon compte</a>
                 </li>
-                <li class="md:ml-4 mt-3 md:mt-0">
-                    <button class="btn btn-danger"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-white hover:text-gray">
-                    {{ __('Déconnexion') }}</a></button>
+                <li class="md:ml-4 mt-4 md:mt-0">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-danger">
+                      <i class="fas fa-power-off"></i>
+                    {{ __('Déconnexion') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="mt-1">
                     @csrf </form>
                 </li>
                 @else
                 <li class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{route('login')}}" class="text-white hover:text-gray">Se connecter</a>
+                    <a href="{{route('login')}}" class="text-white hover:text-gray">
+                      <i class="fas fa-sign-in-alt text-success"></i>
+                      Se connecter
+                    </a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                  <a href="{{route('register')}}" class="text-white hover:text-gray">Créer compte</a>
+                  <a href="{{route('register')}}" class="text-white hover:text-gray">
+                    <i class="fas fa-user-plus text-info"></i>
+                    Créer compte
+                  </a>
                 </li>
                 @endauth
             </ul>
@@ -103,9 +116,4 @@
       }
     });
   });
-
-  function gotoMovie(id){
-      console.log("Ok");
-      
-  }
 </script>

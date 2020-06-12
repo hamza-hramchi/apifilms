@@ -18,7 +18,7 @@ class UserController extends Controller
         $user = Auth::user();
         $critics = Film::where('user_id', '=', Auth::user()->id)->get();
         $data = collect([$user,$critics]);
-        return view('moncompte',['data' => $data]);
+        return $data[0];
     }
 
     public function addCritic(Request $request, $idfilm){
@@ -29,7 +29,12 @@ class UserController extends Controller
         $critic->titre   = $request->input('titre');
         $critic->contenu = $request->input('contenu');
         $critic->film_titre = $request->input('film_titre');
-        $critic->note = $request->input('rating');
+        if($request->input('rating') > 5){
+            $critic->note = 5;
+        }
+        else{
+            $critic->note = $request->input('rating');
+        }
         $critic->save();   
     }
 

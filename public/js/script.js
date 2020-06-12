@@ -1,6 +1,9 @@
 
 $(document).ready(function(){
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var id = $(".divFilm").attr("id");
+
+    // Enregistrer la critique
     $("#send").click(function(){
         var titre = $("#titre").val();
         var contenu = $("#contenu").val();
@@ -24,7 +27,7 @@ $(document).ready(function(){
         } 
     })
 
-    var id = $(".divFilm").attr("id");
+    // La liste des critiques
     $.ajax({ 
         url :'/film/' + id + '/critiques',
         method : 'GET',
@@ -40,7 +43,7 @@ $(document).ready(function(){
             else{
                 $.each(data,function(index,row){
                     var d = new Date(row.created_at);
-                    chaine += "<h4 class=text-warning>" + row.titre + "</h4>";
+                    chaine += "<h4 class=text-black>" + row.titre + "</h4>";
                     chaine += "<p>" + row.contenu + "/</p>";
                     chaine += "<small> Ajoutée le : " + d.getDay()+"/"+d.getMonth()+"/"+d.getFullYear() + "</small><hr>";
                     $("#criticsList").append(chaine);
@@ -49,6 +52,7 @@ $(document).ready(function(){
         }
     });
 
+    // La note
     $.ajax({
         url : '/film/' + id + '/note',
         method : 'GET',
@@ -61,7 +65,7 @@ $(document).ready(function(){
             });
 
             if(somme == 0) {
-                chaine = "<span class=small> Ce film n'est pas encore noté </small>";
+                chaine = "<span class=small>Ce film n'est pas encore noté </small>";
                     $("#note").append(chaine);
             }
             else{
@@ -70,8 +74,10 @@ $(document).ready(function(){
                     chaine = '<i class="fa fa-star"></i>';
                     $("#note").append(chaine);
                 }
-                var lanote = '<span class="small"> (' + f_note +  ') </span>';
-                $("#note").append(lanote)
+                var lanote = '<span class="small"> ( ' + f_note +  ' / 5 ) </span>';
+                $("#note").append(lanote);
+                console.log(f_note);
+                
             }
             
             ;

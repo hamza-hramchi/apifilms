@@ -23,8 +23,6 @@
                     <span class="ml-1">{{$film['vote_count']}} votes</span>
                     <span class="mx-2">|</span>
                     <span>{{ \Carbon\Carbon::parse($film['release_date'])->format('d M Y')}}</span>
-                    <span class="mx-2">|</span>
-                    <span>{{$film['tagline']}}</span>
                 </div>
                 <p class="text-gray-300 mt-8">{{$film['overview']}}</p>
                 @if(Auth::user())
@@ -36,7 +34,7 @@
         </div>
 
         <div class="container" id="criticsList">
-            <h1>Les critiques pour : {{$film['title']}}</h1>
+            <h1 class="text-bold text-black">Les critiques pour : {{$film['title']}}</h1>
             <hr>
         </div>
 
