@@ -5,6 +5,7 @@
     <p> npm install laravel-livewire  </p>
     <p> npm install @fortawesome/fontawesome-free </p>
     <h1> API : https://www.themoviedb.org </h1>
+    <h1> Laravel ui vue –auth </h1>
 </div>
 <hr>
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
