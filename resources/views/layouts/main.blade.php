@@ -33,7 +33,7 @@
                 <li class="md:ml-4 ml-3 md:mt-0">
                     <div class="dropdown mt-3">
                         <button class="dropdown-toggle" type="button" data-toggle="dropdown">
-                          <i class="fas fa-film text-info"></i>
+                          <i class="fas fa-film text-default"></i>
                           Les derniers films critiqués
                         </button>
                         <div class="dropdown-menu" id="latest">

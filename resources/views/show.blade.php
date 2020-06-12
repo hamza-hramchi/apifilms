@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" min="0" max="5"  id="rating" name="rating" class="form-control" placeholder="Donnez une note/5 pour ce film">
+                        <input type="number" min="0" max="5"  id="rating" name="rating" class="form-control" placeholder="Notez ce film">
                     </div>
 
                     <div class="form-group">

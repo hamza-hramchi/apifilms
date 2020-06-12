@@ -6,8 +6,14 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link  active show" href="#critiques" data-toggle="tab">La liste des critiques</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#profil" data-toggle="tab">Mon profil</a></li>
+                    <li class="nav-item"><a class="nav-link  active show" href="#critiques" data-toggle="tab">
+                        <i class="fas fa-stream"></i>
+                        La liste des critiques
+                    </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profil" data-toggle="tab">
+                        <i class="fas fa-user"></i>
+                        Mon profil
+                    </a></li>
                     </ul>
                 </div><!-- /.card-header -->
                 <div class="bg-gray-600 card-body">
@@ -41,6 +47,7 @@
                                             <!-- Subtitle -->
                                             <p class="card-text text-black">{{ $critic->contenu }}</p>
                                             <p class="card-text text-black">{{$critic->created_at->diffForHumans()}}</p>
+
                                             <form method="POST" action="{{route('delete',$critic->id)}}">
                                                 @csrf
                                                 <button class="btn btn-danger">Supprimer</button>

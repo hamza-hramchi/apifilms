@@ -9,18 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
+    // Le constructeur
+    public function __construct(){
+        $this->middleware('auth'); // Middleware d'authentification
     }
-    public function show()
-    {
+
+    // Afficher les données de l'utilisateur
+    public function show(){
         $user = Auth::user();
         $critics = Film::where('user_id', '=', Auth::user()->id)->get();
         $data = collect([$user,$critics]);
-        return $data[0];
+        return view('moncompte',['data' => $data]);
     }
 
+    // Ajouter une critique
     public function addCritic(Request $request, $idfilm){
         $critic = new Film();
         $iduser = Auth::user()->id;
@@ -29,15 +31,11 @@ class UserController extends Controller
         $critic->titre   = $request->input('titre');
         $critic->contenu = $request->input('contenu');
         $critic->film_titre = $request->input('film_titre');
-        if($request->input('rating') > 5){
-            $critic->note = 5;
-        }
-        else{
-            $critic->note = $request->input('rating');
-        }
+        $critic->note = $request->input('rating');
         $critic->save();   
     }
 
+    // Supprimer une critique
     public function delete($id){
         Film::destroy([$id]);
         return back();

@@ -20,8 +20,7 @@ $(document).ready(function(){
                 data : {_token: CSRF_TOKEN,titre: titre, contenu : contenu, film_titre : film_titre, rating : rating},
                 success : function(response){
                     alert("Votre critique est bien ajoutée avec succès !");
-                    $("#titre").val('');
-                    $("#contenu").val('');
+                    document.location.reload(true);
                 }
             });
         } 
@@ -43,7 +42,7 @@ $(document).ready(function(){
             else{
                 $.each(data,function(index,row){
                     var d = new Date(row.created_at);
-                    chaine += "<h4 class=text-black>" + row.titre + "</h4>";
+                    chaine += "<h3 class=text-white> - " + row.titre + "</h3>";
                     chaine += "<p>" + row.contenu + "/</p>";
                     chaine += "<small> Ajoutée le : " + d.getDay()+"/"+d.getMonth()+"/"+d.getFullYear() + "</small><hr>";
                     $("#criticsList").append(chaine);
@@ -74,9 +73,8 @@ $(document).ready(function(){
                     chaine = '<i class="fa fa-star"></i>';
                     $("#note").append(chaine);
                 }
-                var lanote = '<span class="small"> ( ' + f_note +  ' / 5 ) </span>';
+                var lanote = '<span class="small"> ( ' + f_note +  ' ) </span>';
                 $("#note").append(lanote);
-                console.log(f_note);
                 
             }
             
