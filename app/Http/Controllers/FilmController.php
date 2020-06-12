@@ -14,6 +14,7 @@ class FilmController extends Controller
     }
 
     public function show($id){
+        
         //API
         $film = Http::get('https://api.themoviedb.org/3/movie/'.$id.'?api_key=ff3d7a37ebce90ac13d25ffeacb9c48d&language=en-US')->json();
         return view('show', ['film' => $film]);
@@ -28,6 +29,11 @@ class FilmController extends Controller
         $latest = Film::orderBy('created_at','desc')->take(4)->get();
         return ['latest' => $latest];
         
+    }
+
+    public function getNote($id){
+        $note = Film::where('film_id', '=', $id)->get('note');
+        return ['note' => $note];
     }
 
 

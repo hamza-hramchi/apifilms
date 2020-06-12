@@ -11,9 +11,7 @@
                     <img src="{{asset('images/default.jpg')}}" alt="poster" class="w-64 lg:w-96" width="24rem">
                 @endif
                 <p>
-                    <div class="placeholder" style="color: yellow;">
-                        <i class="fa fa-star"></i>
-                        <span class="small">( 5 )</span>
+                    <div id="note" class="placeholder" style="color: yellow;">
                     </div>
                 </p>
             </div>
@@ -61,7 +59,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" min="1" min="3" id="rate" name="rate" class="form-control" placeholder="Noter le film">
+                        <input type="number" min="0" max="5"  id="rating" name="rating" class="form-control" placeholder="Donnez une note/5 pour ce film">
                     </div>
 
                     <div class="form-group">

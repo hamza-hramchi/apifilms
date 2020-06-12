@@ -29,6 +29,7 @@ class UserController extends Controller
         $critic->titre   = $request->input('titre');
         $critic->contenu = $request->input('contenu');
         $critic->film_titre = $request->input('film_titre');
+        $critic->note = $request->input('rating');
         $critic->save();   
     }
 

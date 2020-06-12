@@ -14,7 +14,7 @@ class AddNoteToCriticsTable extends Migration
     public function up()
     {
         Schema::table('critics', function (Blueprint $table) {
-            //
+            $table->integer('note');
         });
     }
 
@@ -26,7 +26,7 @@ class AddNoteToCriticsTable extends Migration
     public function down()
     {
         Schema::table('critics', function (Blueprint $table) {
-            //
+            $table->dropColumn(['note']);
         });
     }
 }
