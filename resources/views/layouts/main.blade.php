@@ -33,7 +33,6 @@
                           Les derniers films critiqués
                         </button>
                         <div class="dropdown-menu" id="latest">
-                          
                         </div>
                       </div>
                 </li>
@@ -74,7 +73,7 @@
 </body>
   <!-- Footer -->
   <footer class="page-footer font-small blue">
-    <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza
+    <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza | Site de référence pour l'API
       <a href="https://www.themoviedb.org/documentation/api" class="text-black"> themoviedb API</a>
     </div>
 </footer>
@@ -90,12 +89,23 @@
       success : function(data){
         var rows = data.latest;
         var chaine ='';
-        $.each(rows,function(index,row){
-          chaine ="<a class=dropdown-item href=>" + row.titre + "</a>";
+        if(rows.length == 0){
+          chaine = "<p class=dropdown-item> Pas de critiques </p>";
           $("#latest").append(chaine);
-          
-        });
+        }
+        else{
+          $.each(rows,function(index,row){
+            chaine = "<a class=dropdown-item" + " id = " + row.film_id + " onclick = gotoMovie(" + row.film_id + ")>" + row.film_titre + "</a>";
+            $("#latest").append(chaine);
+          });
+        }
+        
       }
     });
   });
+
+  function gotoMovie(id){
+      console.log("Ok");
+      
+  }
 </script>
