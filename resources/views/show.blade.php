@@ -10,6 +10,12 @@
                 @else
                     <img src="{{asset('images/default.jpg')}}" alt="poster" class="w-64 lg:w-96" width="24rem">
                 @endif
+                <p>
+                    <div class="placeholder" style="color: yellow;">
+                        <i class="fa fa-star"></i>
+                        <span class="small">( 5 )</span>
+                    </div>
+                </p>
             </div>
 
         <div class="md:ml-24 divFilm" id="{{$film['id']}}">
@@ -53,9 +59,15 @@
                     <div class="form-group">
                         <input type="text" name="titre" id=titre class="form-control" placeholder="Le titre">
                     </div>
+
+                    <div class="form-group">
+                        <input type="number" min="1" min="3" id="rate" name="rate" class="form-control" placeholder="Noter le film">
+                    </div>
+
                     <div class="form-group">
                         <textarea name="contenu" id="contenu" cols="20" rows="10" class="form-control" placeholder="Le contenu"></textarea>
                     </div>
+
                     <div class="form-group">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success form-control" id="send">Enregistrer</button>

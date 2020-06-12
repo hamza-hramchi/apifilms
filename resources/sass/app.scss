@@ -3,6 +3,7 @@
 
 // Variables
 @import 'variables';
+$fa-font-path: "../webfonts";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -11,3 +12,10 @@
 @import "~tailwindcss/dist/base.css";
 @import "~tailwindcss/dist/components.css";
 @import "~tailwindcss/dist/utilities.css";
+
+// Fort awseome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";

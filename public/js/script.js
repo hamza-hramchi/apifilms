@@ -13,7 +13,7 @@ $(document).ready(function(){
             $.ajax({
                 url : '/critique/' + idFilm,
                 type : 'POST',
-                data : {_token: CSRF_TOKEN,titre: titre, contenu : contenu, film_titre : film_titre},
+                data : {_token: CSRF_TOKEN,titre: titre, contenu : contenu, film_titre : film_titre, rate : rate},
                 success : function(response){
                     alert("Votre critique est bien ajoutée avec succès !");
                     $("#titre").val('');
