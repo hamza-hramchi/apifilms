@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\MailtrapExample;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,3 +21,8 @@ Route::get('/film/{id}/note','FilmController@getNote')->name('note');
 Route::get('/moncompte','UserController@show')->name('moncompte');
 Route::post('/critique/{idfilm}','UserController@addCritic')->name('critic');
 Route::post('/delete/{id}','UserController@delete')->name('delete');
+
+Route::get('/send-mail', function () {
+    Mail::to('newuser@example.com')->send(new MailtrapExample()); 
+    return 'A message has been sent to Mailtrap!';
+});

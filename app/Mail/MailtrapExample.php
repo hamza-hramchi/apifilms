@@ -28,6 +28,12 @@ class MailtrapExample extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('mail@exemple.com', 'Mailtrap')
+            ->subject('Mailtrap confirmation')
+            ->markdown('mails.exemple')
+            ->with([
+                'name' => 'New Mailtrap user',
+                'link' => 'https://mailtrap.io/inboxes'
+            ]);
     }
 }
