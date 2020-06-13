@@ -6,22 +6,21 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 
-
-
-
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+// Film Routes
 Route::get('/','FilmController@index')->name('index');
 Route::get('/film/{id}','FilmController@show')->name('show');
 Route::get('/film/{id}/critiques','FilmController@getCritics')->name('critics');
 Route::get('/lespluscritiques','FilmController@latest')->name('latest');
 Route::get('/film/{id}/note','FilmController@getNote')->name('note');
 
+// User Routes
 Route::get('/moncompte','UserController@show')->name('moncompte');
 Route::post('/critique/{idfilm}','UserController@addCritic')->name('critic');
 Route::post('/delete/{id}','UserController@delete')->name('delete');
 
+// Send Mail
 Route::get('/send-mail', function () {
     Mail::to('newuser@example.com')->send(new MailtrapExample()); 
     return 'A message has been sent to Mailtrap!';
