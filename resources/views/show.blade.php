@@ -34,7 +34,10 @@
         </div>
 
         <div class="container" id="criticsList">
-            <h1 class="text-bold text-black">Les critiques pour : {{$film['title']}}</h1>
+            <h1 class="text-bold text-black">
+                <i class="fa fa-comments"></i>
+                Les critiques pour : {{$film['title']}}
+            </h1>
             <hr>
         </div>
 

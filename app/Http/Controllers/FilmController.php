@@ -23,7 +23,13 @@ class FilmController extends Controller
     // Récuperer les critiques
     public function getCritics($id){
         $critics = Film::where('film_id','=', $id)->get();
-        return ['critics' => $critics];
+        $data = Film::where('film_id','=', $id)->get('id');
+        $users = array();
+        foreach($data as $user){
+            $user_name = Film::find($user->id)->user()->get('name');
+            array_push($users,$user_name);  
+        }
+        return ['critics' => collect([$users,$critics]) ];
     }
 
     // Les derniers films critiqués

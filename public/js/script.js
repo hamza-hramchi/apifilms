@@ -33,20 +33,24 @@ $(document).ready(function(){
         data : {id : id},
         dataType: 'json',
         success: function(result){
-            data = result.critics;
+            data = result.critics[1];
+            users = result.critics[0];
             chaine = '';
+            name = '';
             if(data.length == 0){
                 chaine += "<p class=text-white> Pas de critiques pour ce film. </p>";
                 $("#criticsList").append(chaine);
             }
             else{
-                $.each(data,function(index,row){
-                    var d = new Date(row.created_at);
-                    chaine += "<h3 class=text-white> - " + row.titre + "</h3>";
-                    chaine += "<p>" + row.contenu + "/</p>";
+                $.each([data,users],function(index){
+                    var d = new Date(data[index].created_at);
+                    chaine += "<h3 class=text-white>" + data[index].titre + "</h3>";
+                    chaine += "<p>" + data[index].contenu + "/</p>";
+                    chaine += '<span class=text-warning>' + users[index][0].name + ' - </span>';
                     chaine += "<small> Ajoutée le : " + d.getDay()+"/"+d.getMonth()+"/"+d.getFullYear() + "</small><hr>";
                     $("#criticsList").append(chaine);
                 });
+
             }
         }
     });
