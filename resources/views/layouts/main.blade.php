@@ -87,7 +87,7 @@
   <!-- Footer -->
   <footer class="page-footer font-small blue">
     <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza | Site de référence pour l'API
-      <a href="https://www.themoviedb.org/documentation/api" class="text-black"> themoviedb API</a>
+      <a href="https://www.themoviedb.org/documentation/api" class="text-black" target="_blank"> themoviedb API</a>
     </div>
 </footer>
   <!-- Footer -->
@@ -108,8 +108,9 @@
         }
         else{
           $.each(rows,function(index,row){
-            chaine = "<a class=dropdown-item" + " id = " + row.film_id + " onclick = gotoMovie(" + row.film_id + ")>" + row.film_titre + "</a>";
+            chaine = "<a class=dropdown-item" + " id = " + row.film_id + " href=/film/"+row.film_id+">" + row.film_titre + "</a>";
             $("#latest").append(chaine);
+
           });
         }
         

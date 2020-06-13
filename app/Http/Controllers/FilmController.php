@@ -34,7 +34,7 @@ class FilmController extends Controller
 
     // Les derniers films critiqués
     public function latest(){
-        $latest = Film::orderBy('created_at','desc')->take(4)->get();
+        $latest = Film::orderBy('created_at','desc')->take(4)->distinct('film_titre')->get()->unique('film_titre');
         return ['latest' => $latest];
         
     }

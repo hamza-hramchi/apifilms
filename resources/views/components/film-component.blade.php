@@ -10,8 +10,5 @@
                 {{ \Carbon\Carbon::parse($film['release_date'])->format('d M Y')}}
             </span>
         </div>
-        <!--<div class="text-black text-sm">
-            Action - Trailler - Comedie
-        </div> -->
     </div>
 </div>

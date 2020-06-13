@@ -33,12 +33,13 @@
             </div>
         </div>
 
-        <div class="container" id="criticsList">
+        <div class="container">
             <h1 class="text-bold text-black">
                 <i class="fa fa-comments"></i>
                 Les critiques pour : {{$film['title']}}
             </h1>
             <hr>
+            <div id="criticsList"></div>
         </div>
 
     </div>
@@ -60,7 +61,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" min="0" max="5"  id="rating" name="rating" class="form-control" placeholder="Notez ce film">
+                        <input type="number" min="0" max="5"  id="rating" name="rating" class="form-control" placeholder="Donnez une note/5">
                     </div>
 
                     <div class="form-group">
@@ -71,7 +72,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success form-control" id="send">Enregistrer</button>
                             <button type="button" class="btn btn-warning form-control" data-dismiss="modal">Fermer</button>
-                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
