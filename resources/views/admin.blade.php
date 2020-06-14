@@ -116,7 +116,7 @@
                             <div class="form-group">
                                 <div class="modal-footer">
                                     <div class="form-group"></div>
-                                    <button type="submit" onclick="save({{$user->id}})" class="btn btn-success form-control" id="send">Enregistrer</button>
+                                    <button type="submit" onclick="save({{$user->id}})" class="btn btn-success form-control">Enregistrer</button>
                                     <button type="button" class="btn btn-warning form-control" data-dismiss="modal">Fermer</button>
                                 </div>
                             </div>
@@ -133,5 +133,6 @@
 
 <!------ Javascript --------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{asset('/js/script.js')}}"></script>
+<script src="{{asset('js/script.js')}}">
+</script>
 <!------/ Javascript --------->

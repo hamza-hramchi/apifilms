@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Film;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -82,11 +84,11 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->type = $request->input('type');
         $user->save();
-        if(count(User::all()) >0){
-            return back();
+        if(count(User::all()) > 0){
+            return Redirect::back();
         }
-        else{
-            return view('index');
+        if(Auth::user()->type == 'user'){
+            return redirect('/');
         }
     }
 
