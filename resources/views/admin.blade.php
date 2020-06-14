@@ -12,12 +12,12 @@
                 </a></li>
 
                 <li class="nav-item"><a class="nav-link active show" href="#users" data-toggle="tab">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-users"></i>
                     Les utilisateurs
                 </a></li>
 
                 <li class="nav-item"><a class="nav-link" href="#addUser" data-toggle="tab">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user-plus"></i>
                     Ajouter un utilisateurss
                 </a></li>
                 </ul>

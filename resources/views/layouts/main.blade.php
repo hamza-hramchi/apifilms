@@ -42,8 +42,8 @@
                 </li>
                 @auth
                 <li class="md:ml-4 mt-3 md:mt-0">
-                    <a href="{{route('moncompte',Auth::user()->id)}}" class="text-white hover:text-gray">
-                      <i class="fas fa-user text-success"></i>
+                    <a href="{{route('moncompte',Auth::user()->id)}}" class="text-success hover:text-gray">
+                      <i class="fas fa-user"></i>
                       Mon compte</a>
                 </li>
 
@@ -96,9 +96,9 @@
 </body>
 <hr>
   <!-- Footer -->
-  <footer class="page-footer font-small blue">
+  <footer class="page-footer">
     <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza | Site de référence pour l'API
-      <a href="https://www.themoviedb.org/documentation/api" class="text-black" target="_blank"> themoviedb API</a>
+      <a href="https://www.themoviedb.org/documentation/api" class="text-warning" target="_blank"> themoviedb API</a>
     </div>
 </footer>
   <!-- Footer -->
