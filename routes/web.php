@@ -23,6 +23,7 @@ Route::post('/delete/{id}','UserController@delete')->name('delete');
 Route::post('/deleteUser/{id}','UserController@destroyUser')->name('deleteUser');
 Route::get('/getUser/{id}','UserController@getUser')->name('getUser');
 route::post('/update/{id}','UserController@update')->name('update');
+Route::post('/addUser','UserController@addUser')->name('addUser');
 
 // Admin route
 Route::get('/dashboard','UserController@panel')->name('dashboard');

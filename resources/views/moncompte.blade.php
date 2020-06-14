@@ -3,28 +3,29 @@
 @section('content')
     <div class="container mt-5">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card mx-auto">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link" href="#critiques" data-toggle="tab">
                         <i class="fas fa-stream"></i>
                         La liste des critiques
                     </a></li>
-                    <li class="nav-item"><a class="nav-link   active show" href="#profil" data-toggle="tab">
+                    <li class="nav-item"><a class="nav-link  active show" href="#profil" data-toggle="tab">
                         <i class="fas fa-user"></i>
                         Mon profil
                     </a></li>
                     </ul>
                 </div><!-- /.card-header -->
-                <div class="bg-gray-600 card-body">
+                <div class="card-body">
                     <div class="tab-content">
                         <!-- profil Tab -->
-                        <div class="tab-pane  active show" id="profil">
+                        <div class="tab-pane active show" id="profil">
                             <div class="card text-black mx-auto" style="width: 16rem;">
                                 <img class="card-img-top" src="{{asset('images/user.png')}}" alt="Card image cap">
                                 <div class="card-body">
-                                  <h5 class="card-title">{{ $data[0]->name }}</h5>
-                                  <p class="card-text">{{ $data[0]->email }}</p>
+                                  <h5 class="card-title text-bold text-black">{{ $data[0]->name }}</h5>
+                                  <span class="card-text">Type : {{$data[0]->type}}</span>
+                                  <p class="card-text">Email : {{ $data[0]->email }}</p>
                                   <a href="#critiques" class="badge badge-info" data-toggle="tab">Vous avez {{ $data[1]->count()}} critique(s)</a>
                                 </div>
                               </div>

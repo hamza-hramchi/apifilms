@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
@@ -67,7 +69,7 @@ class UserController extends Controller
             array_push($data,collect([$user->id,$user['user']->name,$user->film_titre,$user->contenu]));
         }
 
-        return view('admin',['data' => $data, 'users' => User::all()]);
+        return view('admin',['data' => $data, 'users' => User::where('type', '=', "user")->get()]);
 
     }
 
@@ -78,18 +80,33 @@ class UserController extends Controller
         return ['user' => User::find($id)];
     }
 
+    // Mettre à jour les informations d'un utilisateur
     public function update(Request $request, $id){
-        $user = User::find($id);
+        $this->authorize('isAdmin');
+        $user = User::findOrFail($id);
+
+        $this->validate($request, [
+            'email'    =>  'required|unique:users,email,'.$id,
+        ]);
+        
         $user->name = $request->input('nom');
         $user->email = $request->input('email');
         $user->type = $request->input('type');
         $user->save();
-        if(count(User::all()) > 0){
-            return Redirect::back();
-        }
-        if(Auth::user()->type == 'user'){
-            return redirect('/');
-        }
+        
+    }
+
+    // Ajouter un utilisateur
+    public function addUser(Request $request){
+        $this->authorize('isAdmin');
+        $user = new User;
+        $user->name = $request->input('nomUser');
+        $user->email = $request->input('emailUser');
+        $user->password = Hash::make($request->input('passwordUser'));
+        $user->type = $request->input('typeUser');
+        $user->save();
+
+        return Redirect::back();
     }
 
 }

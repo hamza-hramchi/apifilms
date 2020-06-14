@@ -84,6 +84,7 @@ $(document).ready(function(){
         }
 
     });
+    
 });
 
 // récuperer les informations
@@ -103,8 +104,9 @@ function getUser(id){
 }
 
 // Mettre à jour les informations de l'utilisateur
-function save(id){
+function save(){
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var id = $(".ligneUser").attr('id');
     var nom = $("#nom").val();
     var email = $("#email").val();
     var type = $("#type").val();
@@ -114,3 +116,4 @@ function save(id){
         data : {_token: CSRF_TOKEN,nom : nom, email : email, type : type},
     });
 }
+

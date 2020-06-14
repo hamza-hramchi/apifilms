@@ -94,6 +94,7 @@
 <!--/ Scripts -->
 
 </body>
+<hr>
   <!-- Footer -->
   <footer class="page-footer font-small blue">
     <div class="footer-copyright text-center py-3">©HRAMCHI-Hamza | Site de référence pour l'API

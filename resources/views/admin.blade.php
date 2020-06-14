@@ -10,9 +10,15 @@
                     <i class="fas fa-stream"></i>
                     La liste des critiques
                 </a></li>
+
                 <li class="nav-item"><a class="nav-link active show" href="#users" data-toggle="tab">
                     <i class="fas fa-user"></i>
                     Les utilisateurs
+                </a></li>
+
+                <li class="nav-item"><a class="nav-link" href="#addUser" data-toggle="tab">
+                    <i class="fas fa-user"></i>
+                    Ajouter un utilisateurss
                 </a></li>
                 </ul>
             </div><!-- /.card-header -->
@@ -53,9 +59,10 @@
                         </table>
                     </div>
                 </div>
-            
+                
                 <!--- les utilisateurs --->
                 <div class="tab-pane active show" id="users">
+                    @if(count($users) > 0)
                     <table class="table table-hover">
                         <thead>
                             <th scope="col">ID</th>
@@ -64,7 +71,6 @@
                             <th scope="col">Type</th>
                             <th scope="col">Action</th>
                         </thead>
-
                         <tbody id="contenu">
                             @foreach ($users as $user)
                                 <tr class="ligneUser" id="{{$user->id}}">
@@ -83,6 +89,39 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <h1 class="text-danger text-center">Pas d'utilisateurs de type ' USER '</h1>
+                    @endif
+                </div>
+
+                <!-- Ajouter un utilisateur -->
+                <div class="tab-pane" id="addUser">
+                    <form method="POST" action="{{route('addUser')}}">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="nomUser" id="nomUser" placeholder="Le nom" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="emailUser" id="emailUser" placeholder="Adresse E-mail" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" name="passwordUser" id="passwordUser" placeholder="Mot de passe" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <select name="typeUser" id="typeUser" class="form-control">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success form-control">Ajouter</button>
+                            <button type="reset" class="btn btn-warning form-control">Annuler</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -103,7 +142,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="email" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -115,12 +154,12 @@
 
                             <div class="form-group">
                                 <div class="modal-footer">
-                                    <div class="form-group"></div>
-                                    <button type="submit" onclick="save({{$user->id}})" class="btn btn-success form-control">Enregistrer</button>
+                                    <button onclick="save()" class="btn btn-success form-control">Enregistrer</button>
                                     <button type="button" class="btn btn-warning form-control" data-dismiss="modal">Fermer</button>
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                     
                 </div>
