@@ -6,11 +6,11 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link  active show" href="#critiques" data-toggle="tab">
+                    <li class="nav-item"><a class="nav-link" href="#critiques" data-toggle="tab">
                         <i class="fas fa-stream"></i>
                         La liste des critiques
                     </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#profil" data-toggle="tab">
+                    <li class="nav-item"><a class="nav-link   active show" href="#profil" data-toggle="tab">
                         <i class="fas fa-user"></i>
                         Mon profil
                     </a></li>
@@ -19,7 +19,7 @@
                 <div class="bg-gray-600 card-body">
                     <div class="tab-content">
                         <!-- profil Tab -->
-                        <div class="tab-pane" id="profil">
+                        <div class="tab-pane  active show" id="profil">
                             <div class="card text-black mx-auto" style="width: 16rem;">
                                 <img class="card-img-top" src="{{asset('images/user.png')}}" alt="Card image cap">
                                 <div class="card-body">
@@ -32,7 +32,7 @@
                         
                         
                         <!-- Setting Tab -->
-                        <div class="tab-pane active show" id="critiques">
+                        <div class="tab-pane" id="critiques">
                         @if($data[1]->count() >0)
                             <!-- Card -->
                             @foreach($data[1] as $critic)
@@ -50,7 +50,7 @@
 
                                             <form method="POST" action="{{route('delete',$critic->id)}}">
                                                 @csrf
-                                                <button class="btn btn-danger">Supprimer</button>
+                                                <button class="btn btn-danger" onclick="return confirm('Vous confirmez la suppression ?');">Supprimer</button>
                                             </form>
                                         </div>
                                     </div>

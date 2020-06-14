@@ -13,13 +13,13 @@
     <!--/ Styles -->
 </head>
 
-<body class="font-sans bg-gray-600 text-white">
+<body class="font-sans bg-blue-700 text-white">
   <nav class="bg-black border-b border-gray-800" id="app">
       <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-2 py-2">
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
                     <a href="{{route('index')}}">
-                        <img class="wt-29" src="{{asset('images/logo.png')}}" alt="">
+                        <img class="wt-27" src="{{asset('images/logo.png')}}" alt="">
                     </a>
                 </li>
 
@@ -46,6 +46,16 @@
                       <i class="fas fa-user text-success"></i>
                       Mon compte</a>
                 </li>
+
+                <li class="md:ml-4 mt-3 md:mt-0">
+                  @can('isAdmin')
+                    <a href="{{route('dashboard')}}" class="text-white mr-1 text-info">
+                          <i class="fas fa-users-cog"></i>
+                          Admin Panel
+                    </a>
+                  @endcan
+                </li>
+               
                 <li class="md:ml-4 mt-4 md:mt-0">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-danger">
                       <i class="fas fa-power-off"></i>
@@ -69,7 +79,7 @@
                 @endauth
             </ul>
             <div class="flex flex-col md:flex-row items-center text-black">
-                    <livewire:search-dropdown>
+              <livewire:search-dropdown>
             </div>
         </div>
   </nav>

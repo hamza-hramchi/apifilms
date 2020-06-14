@@ -19,7 +19,7 @@ $(document).ready(function(){
                 url : '/critique/' + idFilm,
                 type : 'POST',
                 data : {_token: CSRF_TOKEN,titre: titre, contenu : contenu, film_titre : film_titre, rating : rating},
-                success : function(response){
+                success : function(){
                     alert("Critique enregistrée avec succès !");
                     document.location.reload(true);
                 }
@@ -84,4 +84,34 @@ $(document).ready(function(){
         }
 
     });
+
+    // récuperer les informations
+    function getUser(id){
+        $.ajax({
+            url : '/getUser/' + id,
+            method : 'GET',
+            dataType : 'JSON',
+            success : function(data){
+                var info = data.user;
+                var chaine = '';
+                $("#nom").val(info.name);
+                $("#email").val(info.email);
+                $("#type").val(info.type);
+                            
+            }
+        });
+    }
+
+    // Mettre à jour les informations de l'utilisateur
+    function save(id){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var nom = $("#nom").val();
+        var email = $("#email").val();
+        var type = $("#type").val();
+        $.ajax({
+            url : '/update/' + id,
+            method : 'post',
+            data : {_token: CSRF_TOKEN,nom : nom, email : email, type : type},
+        });
+    }
 });

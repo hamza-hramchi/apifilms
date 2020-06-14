@@ -40,4 +40,54 @@ class UserController extends Controller
         Film::destroy([$id]);
         return back();
     }
+
+    // Supprimer un user
+    public function destroyUser($id){
+        $this->authorize('isAdmin');
+        $film = new Film;
+        $user = $film->with('user')->get('id');
+        for($i = 0; $i< count($user); $i++){
+            Film::destroy([$user[$i]->id]);
+        }
+        User::destroy([$id]);
+        return back();
+    }
+
+    // Dashboard admin
+    public function panel(){
+        $this->authorize('isAdmin');
+        $films = new Film();
+        $users = new User();
+        $data = array();
+        //return view('admin',['users' => $users]);
+        $users = $films->with('user')->get();
+        foreach($users as $user){
+            array_push($data,collect([$user->id,$user['user']->name,$user->film_titre,$user->contenu]));
+        }
+
+        return view('admin',['data' => $data, 'users' => User::all()]);
+
+    }
+
+    
+    // récuprere l'utilisateur
+    public function getUser($id){
+        $this->authorize('isAdmin');
+        return ['user' => User::find($id)];
+    }
+
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $user->name = $request->input('nom');
+        $user->email = $request->input('email');
+        $user->type = $request->input('type');
+        $user->save();
+        if(count(User::all()) >0){
+            return back();
+        }
+        else{
+            return view('index');
+        }
+    }
+
 }
