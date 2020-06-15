@@ -18,7 +18,7 @@
 
                 <li class="nav-item"><a class="nav-link" href="#addUser" data-toggle="tab">
                     <i class="fas fa-user-plus"></i>
-                    Ajouter un utilisateurss
+                    Ajouter un utilisateur
                 </a></li>
                 </ul>
             </div><!-- /.card-header -->
